@@ -1,0 +1,60 @@
+# Backbone-Plus
+##### Backbone Improved
+
+## The Goal
+To make developing web and mobile apps with Backbone + Browserify easy and predictable, without treading into opinionated framework territory.
+
+## The 30-Second Changelog
+ * Comes with `jquery-browserify` out of the box
+ * `Backbone.ajax` has been patched to use `browser-request`
+ * Defaults to `application/json` CORS requests
+ * Functions like `.save` and `.fetch` now follow node callback conventions
+
+```
+// Previously:
+myModel.save({attr: 'changeMe'}, {
+	success: function () {}
+, error: function () {}
+, headers: {}
+});
+
+// Now:
+myModel.save(function (err) {
+	// etc
+});
+
+// Or with options:
+myModel.save({
+	headers: {}
+}, function (err) {
+	// etc
+});
+```
+
+## Todo
+ * "Latency Compression"
+ 		* Add a request cache
+ 		* Add a `ready` event to `Collection` and `Model`
+
+## License
+The MIT License (MIT)
+
+Copyright (c) 2013 Ben Ng
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
