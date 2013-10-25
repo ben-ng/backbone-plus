@@ -21,7 +21,8 @@ var myView = Backbone.view.extend({
     * If a cached response is available, `cacheRead` will trigger
     */
     this.listenToOnce(this.collection
-      , 'cacheRead', function (resp) {
+      , 'cacheRead'
+      , function (resp) {
         // Parse the response and update the collection
         self.collection.set(self.collection.parse(resp));
         self.render();
