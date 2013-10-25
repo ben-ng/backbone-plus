@@ -1,4 +1,3 @@
-
 {
   "author": "Ben Ng <me@benng.me> (http://benng.me)",
   "name": "backbone-plus",
@@ -8,7 +7,7 @@
     "browserify",
     "plus"
   ],
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/ben-ng/backbone-plus.git"
@@ -16,7 +15,7 @@
   "main": "./lib/index",
   "dependencies": {
     "backbone": "1.0.x",
-    "browser-request":"0.2.x",
+    "browser-request": "0.2.x",
     "jquery-browserify": "1.8.x"
   },
   "devDependencies": {
