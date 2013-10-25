@@ -34,6 +34,7 @@ myModel.save({
  * "Latency Compression"
     * Add a request cache
     * Add a `ready` event to `Collection` and `Model`
+ * Drop-in compatability with canonical Backbone to make onboarding easier
 
 ## License
 The MIT License (MIT)
