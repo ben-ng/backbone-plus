@@ -5,11 +5,51 @@ To make developing web and mobile apps with Backbone + Browserify easy and predi
 
 ## The 30-Second Changelog
  * Comes with `jquery-browserify` out of the box
- * `Backbone.ajax` has been patched to use `browser-request`
- * Defaults to `application/json` CORS requests
- * Functions like `.save` and `.fetch` now follow node callback conventions
+ * `Backbone.ajax` caches responses to speed up initial view renders
+    * Also patched to avoid conflict with `browser-request`
+    * Defaults to `Accept: application/json`, CORS
 
+```js
+// Using caching to improve perceived performance
+var myView = Backbone.view.extend({
+  initialize: function () {
+    var self = this;
+
+    this.collection = new Things();
+
+    /**
+    * If a cached response is available, `cacheRead` will trigger
+    */
+    this.listenToOnce(this.collection
+      , 'cacheRead', function (resp) {
+        // Parse the response and update the collection
+        self.collection.set(self.collection.parse(resp));
+        self.render();
+      });
+
+    /**
+    * Perform a fetch.
+    * Note: Even if a cached response was found, the request
+    * will still happen, and this callback will still fire.
+    */
+    this.collection.fetch(function (err) {
+      if(err) return alert(err);
+
+      self.stopListening(self.collection, 'cacheRead')
+
+      self.render();
+    });
+  }
+});
 ```
+
+
+ * Better error handling in `.save` and `.fetch`
+    * Non - 200, 201, 204 status codes are intepreted as errors
+    * More meaningful error messages (Assumes `message` key in server response)
+ * `.save` and `.fetch` now follow node callback conventions
+
+```js
 // Previously:
 myModel.save({attr: 'changeMe'}, {
   success: function () {}
@@ -31,9 +71,6 @@ myModel.save({
 ```
 
 ## Todo
- * "Latency Compression"
-    * Add a request cache
-    * Add a `ready` event to `Collection` and `Model`
  * Drop-in compatability with canonical Backbone to make onboarding easier
 
 ## License
