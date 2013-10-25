@@ -1,5 +1,4 @@
 # Backbone-Plus
-##### Backbone Improved
 
 ## The Goal
 To make developing web and mobile apps with Backbone + Browserify easy and predictable, without treading into opinionated framework territory.
@@ -13,28 +12,28 @@ To make developing web and mobile apps with Backbone + Browserify easy and predi
 ```
 // Previously:
 myModel.save({attr: 'changeMe'}, {
-	success: function () {}
+  success: function () {}
 , error: function () {}
 , headers: {}
 });
 
 // Now:
 myModel.save(function (err) {
-	// etc
+  // etc
 });
 
 // Or with options:
 myModel.save({
-	headers: {}
+  headers: {}
 }, function (err) {
-	// etc
+  // etc
 });
 ```
 
 ## Todo
  * "Latency Compression"
- 		* Add a request cache
- 		* Add a `ready` event to `Collection` and `Model`
+    * Add a request cache
+    * Add a `ready` event to `Collection` and `Model`
 
 ## License
 The MIT License (MIT)
