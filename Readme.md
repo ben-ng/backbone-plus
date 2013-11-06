@@ -6,7 +6,6 @@ To make developing web and mobile apps with Backbone + Browserify easy and predi
 ## The 30-Second Changelog
  * Comes with `jquery-browserify` out of the box
  * `Backbone.ajax` caches responses to speed up initial view renders
-    * Also patched to avoid conflict with `browser-request`
     * Defaults to `Accept: application/json`, CORS
 
 ```js

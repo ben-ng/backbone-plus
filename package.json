@@ -15,7 +15,6 @@
   "main": "./lib/index",
   "dependencies": {
     "backbone": "1.0.x",
-    "browser-request": "0.3.x",
     "jquery-browserify": "1.8.x",
     "heap": "0.2.x"
   },
