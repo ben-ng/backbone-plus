@@ -4,7 +4,7 @@ var pkgname = require('./package.json').name
 desc('Deploy this build');
 pub = new jake.NpmPublishTask(pkgname, function () {
   this.packageFiles.include([
-    'lib'
+    'lib/**/'
   , 'package.json'
   , 'Jakefile'
   , 'Readme.md'
